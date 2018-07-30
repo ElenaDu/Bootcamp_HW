@@ -31,7 +31,7 @@ session=Session(engine)
 app=Flask(__name__)
 
 #add Flask Routes
-## http://localhost:5000/
+# http://localhost:5000/
 @app.route("/")
 def welcome():
     """List all available api routes."""
@@ -41,7 +41,7 @@ def welcome():
         f"/api/v1.0/stations<br/>"
         f"/api/v1.0/tobs<br/>"
         f"/api/v1.0/start<br/>"
-        f"/api/v1.0/start/end"
+        f"/api/v1.0/start_end"
     )
  
 
@@ -94,6 +94,49 @@ def tobs():
     .filter(Measurement.date>=query_date).all())                 
     new_tobs= [row[0] for row in tobs_list]
     return jsonify(new_tobs)
+
+
+
+#http://localhost:5000/api/v1.0/start
+@app.route("/api/v1.0/start")
+def start():
+    """Return a JSON list of the minimum temperature, the average temperature, 
+    and the max temperature for for all dates greater than and equal to the start date."""
+    start_date=input("Enter start date in 'YYYY-mm-dd' format:")
+    ldate=session.query(Measurement.date).order_by(Measurement.date.desc()).first()
+    l=ldate[0]
+    if start_date>l:
+        print(f"There are no observations for your date. The latest date is {l}")
+        return("There are no observations for your date.")
+    else:
+        temp=(session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs))
+              .filter(Measurement.date>=start_date).all())
+
+        return jsonify(temp[0]) 
+
+#http://localhost:5000/api/v1.0/start_end
+@app.route("/api/v1.0/start_end")
+def start_end():
+    """Return a JSON list of the minimum temperature, the average temperature, 
+    and the max temperature for for all dates between the start and end date inclusive."""
+    start_date=input("Enter start date in 'YYYY-mm-dd' format:")
+    end_date=input("Enter end date in 'YYYY-mm-dd' format:")
+    if start_date > end_date:
+        print("Wrong period. Your start date is greater than end date.")
+        return("Wrong period. Your start date is greater than end date.")
+    else:
+        ldate=session.query(Measurement.date).order_by(Measurement.date.desc()).first()
+        l=ldate[0]
+        if start_date>l:
+            print(f"There are no observations for your dates. The latest date is {l}")
+            return("There are no observations for your dates.")
+        else:
+            temp=(session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs))
+            .filter(Measurement.date>=start_date)
+            .filter(Measurement.date<=end_date)
+            .all())
+            return jsonify(temp[0])
+
 
 
 if __name__=='main':
