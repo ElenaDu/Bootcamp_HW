@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mission to Mars</title>
+        <link rel="stylesheet" type="text/css" href="./Mission to Mars_files/style.css">
+        <link rel="stylesheet" href="./Mission to Mars_files/bootstrap.min.css">
+        
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="jumbotron text-center">
+                <h1>Mission to Mars</h1>
+                <p><a class="btn btn-primary btn-lg" href="http://localhost:5000/scrape" role="button">Scrape New Data </a></p>
+            </div>
+
+        <!--  News -->
+            <div class="row news">
+                <div class="col-md-12">
+                    
+                    <section>
+                        <h2>Latest Mars News</h2>
+          
+                        <h4>
+Opportunity Hunkers Down During Dust Storm
+</h4>
+                        <p>
+It's the beginning of the end for the planet-encircling dust storm on Mars. But it could still be weeks, or even months, before skies are clear enough for NASA's Opportunity rover to recharge its batteries and phone home. 
+</p>
+       
+                    </section>
+                </div>
+            </div>
+
+        <!-- Featured Mars Image -->
+            <div class="row">
+                <div class="col-md-8">
+                    <section>
+                        <h2>Featured Mars Image</h2>
+                        <img id="mars_img" class="img-responsive" src="./Mission to Mars_files/PIA19324_hires.jpg" alt="Featured Mars Image">
+                    </section>
+                </div>
+
+                
+                <div class="col-md-4">
+                     <section>
+                         <!-- Current Weather on Mars -->
+                         <div id="weather">
+                            <h4>Current Weather on Mars</h4>
+                            <p>Sol 2108 (2018-07-12), Sunny, high -24C/-11F, low -65C/-84F, pressure at 8.06 hPa, daylight 05:19-17:27</p>
+                        </div>
+                     
+                        <!-- Mars Facts-->
+                        <div id="info">
+                         <h4>Mars Facts</h4>
+                         <!--Since our table is stored in MongoDB as HTML code,
+                        we need to inject that code into index.html page. 
+                        We will use the |safe filter to explicitly mark a string as safe HTML -->
+                         <p>
+                             </p><table border="1" class="dataframe">
+  <tbody>
+    <tr>
+      <th>Equatorial Diameter:</th>
+      <td>6,792 km</td>
+    </tr>
+    <tr>
+      <th>Polar Diameter:</th>
+      <td>6,752 km</td>
+    </tr>
+    <tr>
+      <th>Mass:</th>
+      <td>6.42 x 10^23 kg (10.7% Earth)</td>
+    </tr>
+    <tr>
+      <th>Moons:</th>
+      <td>2 (Phobos &amp; Deimos)</td>
+    </tr>
+    <tr>
+      <th>Orbit Distance:</th>
+      <td>227,943,824 km (1.52 AU)</td>
+    </tr>
+    <tr>
+      <th>Orbit Period:</th>
+      <td>687 days (1.9 years)</td>
+    </tr>
+    <tr>
+      <th>Surface Temperature:</th>
+      <td>-153 to 20 °C</td>
+    </tr>
+    <tr>
+      <th>First Record:</th>
+      <td>2nd millennium BC</td>
+    </tr>
+    <tr>
+      <th>Recorded By:</th>
+      <td>Egyptian astronomers</td>
+    </tr>
+  </tbody>
+</table>
+                         <p></p>
+                        </div>
+                     </section>
+                </div>
+            </div>
+
+
+            <div class="row" id="hemispheres">
+                
+                <h2>Mars Hemispheres</h2>
+                    
+                
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img src="./Mission to Mars_files/full.jpg" alt="Cerberus" hemisphere="" enhanced="" style="width:100%"> 
+                            <div class="caption">
+                                <h5>Cerberus Hemisphere Enhanced</h5>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    
+                
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img src="./Mission to Mars_files/full(1).jpg" alt="Schiaparelli" hemisphere="" enhanced="" style="width:100%"> 
+                            <div class="caption">
+                                <h5>Schiaparelli Hemisphere Enhanced</h5>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    
+                
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img src="./Mission to Mars_files/full(2).jpg" alt="Syrtis" major="" hemisphere="" enhanced="" style="width:100%"> 
+                            <div class="caption">
+                                <h5>Syrtis Major Hemisphere Enhanced</h5>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    
+                
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img src="./Mission to Mars_files/full(3).jpg" alt="Valles" marineris="" hemisphere="" enhanced="" style="width:100%"> 
+                            <div class="caption">
+                                <h5>Valles Marineris Hemisphere Enhanced</h5>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    
+                
+
+                
+            </div>
+
+        </div>
+        
+    
+
+
+</body></html>
