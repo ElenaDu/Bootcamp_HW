@@ -1,0 +1,47 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.text-center {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+
+.row.news {
+    margin-bottom: 5px; 
+}
+
+#mars_img {
+    width: 100%;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;   
+}
+
+#weather {
+    border: 2px solid rgb(184, 182, 182);
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 10px;
+}
+
+#info {
+    margin-top: 50px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#hemispheres {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+

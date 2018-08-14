@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mission to Mars</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="jumbotron text-center">
+                <h1>Mission to Mars</h1>
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data </a></p>
+            </div>
+
+        <!--  News -->
+            <div class="row news">
+                <div class="col-md-12">
+                    
+                    <section>
+                        <h2>Latest Mars News</h2>
+          
+                        <h4>{{info.news_title}}</h4>
+                        <p>{{info.news_par}}</p>
+       
+                    </section>
+                </div>
+            </div>
+
+        <!-- Featured Mars Image -->
+            <div class="row">
+                <div class="col-md-8">
+                    <section>
+                        <h2>Featured Mars Image</h2>
+                        <img id=mars_img  class=img-responsive src={{info.featured_image_url}} alt='Featured Mars Image'>
+                    </section>
+                </div>
+
+                
+                <div class="col-md-4">
+                     <section>
+                         <!-- Current Weather on Mars -->
+                         <div id="weather">
+                            <h4>Current Weather on Mars</h4>
+                            <p>{{info.mars_weather}}</p>
+                        </div>
+                     
+                        <!-- Mars Facts-->
+                        <div id="info">
+                         <h4>Mars Facts</h4>
+                         <!--Since our table is stored in MongoDB as HTML code,
+                        we need to inject that code into index.html page. 
+                        We will use the |safe filter to explicitly mark a string as safe HTML -->
+                         <p>
+                             {{info.html_table|safe}}
+                         </p>
+                        </div>
+                     </section>
+                </div>
+            </div>
+
+
+            <div class="row" id="hemispheres">
+                
+                <h2>Mars Hemispheres</h2>
+                    
+                {% for url in info.hemisphere_image_urls %}
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img src={{url.img_url}} alt={{url.title}} style="width:100%"> 
+                            <div class="caption">
+                                <h5>{{url.title}}</h5>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    
+                {% endfor %}
+
+                
+            </div>
+
+        </div>
+        
+    </body>
+
+</html>
+
