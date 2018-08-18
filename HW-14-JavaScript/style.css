@@ -1,0 +1,18 @@
+.jumbotron {
+    background-image: url("ufo_pic.jpg");
+    
+}
+#h2_a {
+    color: #fff;
+}
+body {
+    background-color: gainsboro;
+}
+.table-responsive {
+    margin-top: 20px;
+}
+
+td {
+    max-width: 400px;
+    word-wrap: break-word;    
+}
